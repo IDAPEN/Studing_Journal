@@ -249,185 +249,7 @@ namespace Studing_Journal
                 Registry_Class.sqlConnection.Close();
             }
         }
-
-        public void spBurden_Insert(string Employee_Login,Int32 Discipline_ID, Int32 Group_ID,Int32 Course)
-        {
-            spConfiguration("Burden_Insert");
-            try
-            {
-                cmd.Parameters.AddWithValue("@Employee_Login", Employee_Login);
-                cmd.Parameters.AddWithValue("@Discipline_ID", Discipline_ID);
-                cmd.Parameters.AddWithValue("@Group_ID", Group_ID);
-                cmd.Parameters.AddWithValue("@Course", Course);
-                Registry_Class.sqlConnection.Open();
-                Registry_Class.sqlConnection.InfoMessage += message;
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-            catch (SqlException ex)
-            {
-                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
-            }
-            finally
-            {
-                Registry_Class.sqlConnection.Close();
-            }
-        }
-
-        public void spBurden_Update(Int32 ID_Burden, string Employee_Login, Int32 Discipline_ID, Int32 Group_ID, Int32 Course)
-        {
-            spConfiguration("Burden_Update");
-            try
-            {
-                cmd.Parameters.AddWithValue("@ID_Burden", ID_Burden);
-                cmd.Parameters.AddWithValue("@Employee_Login", Employee_Login);
-                cmd.Parameters.AddWithValue("@Discipline_ID", Discipline_ID);
-                cmd.Parameters.AddWithValue("@Group_ID", Group_ID);
-                cmd.Parameters.AddWithValue("@Course", Course);
-                Registry_Class.sqlConnection.Open();
-                Registry_Class.sqlConnection.InfoMessage += message;
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-            catch (SqlException ex)
-            {
-                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
-            }
-            finally
-            {
-                Registry_Class.sqlConnection.Close();
-            }
-        }
-
-        public void spBurden_Delete(Int32 ID_Burden)
-        {
-            spConfiguration("Burden_Delete");
-            try
-            {
-                cmd.Parameters.AddWithValue("@ID_Burden", ID_Burden);
-                Registry_Class.sqlConnection.Open();
-                Registry_Class.sqlConnection.InfoMessage += message;
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-            catch (SqlException ex)
-            {
-                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
-            }
-            finally
-            {
-                Registry_Class.sqlConnection.Close();
-            }
-        }
-
-        public void spBurden_Logical_Delete(Int32 ID_Burden)
-        {
-            spConfiguration("Burden_Logical_Delete");
-            try
-            {
-                cmd.Parameters.AddWithValue("@ID_Burden", ID_Burden);
-                Registry_Class.sqlConnection.Open();
-                Registry_Class.sqlConnection.InfoMessage += message;
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-            catch (SqlException ex)
-            {
-                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
-            }
-            finally
-            {
-                Registry_Class.sqlConnection.Close();
-            }
-        }
-
-        public void spDiscipline_Insert(string Prefix, string The_name_of_the_discipline)
-        {
-            spConfiguration("Discipline_Insert");
-            try
-            {
-                cmd.Parameters.AddWithValue("@Prefix", Prefix);
-                cmd.Parameters.AddWithValue("@The_name_of_the_discipline", The_name_of_the_discipline);
-                Registry_Class.sqlConnection.Open();
-                Registry_Class.sqlConnection.InfoMessage += message;
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-            catch (SqlException ex)
-            {
-                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
-            }
-            finally
-            {
-                Registry_Class.sqlConnection.Close();
-            }
-        }
-
-        public void spDiscipline_Update(Int32 ID_Discipline, string Prefix, string The_name_of_the_discipline)
-        {
-            spConfiguration("Discipline_Update");
-            try
-            {
-                cmd.Parameters.AddWithValue("@ID_Discipline", ID_Discipline);
-                cmd.Parameters.AddWithValue("@Prefix", Prefix);
-                cmd.Parameters.AddWithValue("@The_name_of_the_discipline", The_name_of_the_discipline);
-                Registry_Class.sqlConnection.Open();
-                Registry_Class.sqlConnection.InfoMessage += message;
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-            catch (SqlException ex)
-            {
-                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
-            }
-            finally
-            {
-                Registry_Class.sqlConnection.Close();
-            }
-        }
-
-        public void spDiscipline_Delete(Int32 ID_Discipline)
-        {
-            spConfiguration("Discipline_Delete");
-            try
-            {
-                cmd.Parameters.AddWithValue("@ID_Discipline", ID_Discipline);
-                Registry_Class.sqlConnection.Open();
-                Registry_Class.sqlConnection.InfoMessage += message;
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-            catch (SqlException ex)
-            {
-                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
-            }
-            finally
-            {
-                Registry_Class.sqlConnection.Close();
-            }
-        }
-
-        public void spDiscipline_Logical_Delete(Int32 ID_Discipline)
-        {
-            spConfiguration("Discipline_Logical_Delete");
-            try
-            {
-                cmd.Parameters.AddWithValue("@ID_Discipline", ID_Discipline);
-                Registry_Class.sqlConnection.Open();
-                Registry_Class.sqlConnection.InfoMessage += message;
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-            catch (SqlException ex)
-            {
-                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
-            }
-            finally
-            {
-                Registry_Class.sqlConnection.Close();
-            }
-        }
-        
+                
         public void spCombination_Insert(Int32 Post_ID, string Employee_Login)
         {
             spConfiguration("Combination_Insert");
@@ -1294,6 +1116,903 @@ namespace Studing_Journal
             catch (SqlException ex)
             {
                 Registry_Class.error_message += "\n"+DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spBurden_Insert(string Employee_Login, Int32 Discipline_of_CMC_id, Int32 Group_ID,
+            Int32 Course, string Form_controls_value, decimal Workin_hours, decimal Examenation_hours)
+        {
+            spConfiguration("Burden_Insert");
+            try
+            {
+                cmd.Parameters.AddWithValue("@Employee_Login", Employee_Login);
+                cmd.Parameters.AddWithValue("@Discipline_of_CMC_id", Discipline_of_CMC_id);
+                cmd.Parameters.AddWithValue("@Group_ID", Group_ID);
+                cmd.Parameters.AddWithValue("@Course", Course);
+                cmd.Parameters.AddWithValue("@Form_controls_value", Form_controls_value);
+                cmd.Parameters.AddWithValue("@Workin_hours", Workin_hours);
+                cmd.Parameters.AddWithValue("@Examenation_hours", Examenation_hours);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spBurden_Update(Int32 ID_Burden, string Employee_Login, Int32 Discipline_of_CMC_id, Int32 Group_ID,
+            Int32 Course, string Form_controls_value, decimal Workin_hours, decimal Examenation_hours)
+        {
+            spConfiguration("Burden_Update");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Burden", ID_Burden);
+                cmd.Parameters.AddWithValue("@Employee_Login", Employee_Login);
+                cmd.Parameters.AddWithValue("@Discipline_of_CMC_id", Discipline_of_CMC_id);
+                cmd.Parameters.AddWithValue("@Group_ID", Group_ID);
+                cmd.Parameters.AddWithValue("@Course", Course);
+                cmd.Parameters.AddWithValue("@Form_controls_value", Form_controls_value);
+                cmd.Parameters.AddWithValue("@Workin_hours", Workin_hours);
+                cmd.Parameters.AddWithValue("@Examenation_hours", Examenation_hours);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spBurden_Delete(Int32 ID_Burden)
+        {
+            spConfiguration("Burden_Delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Burden", ID_Burden);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spBurden_Logical_Delete(Int32 ID_Burden)
+        {
+            spConfiguration("Burden_Logical_Delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Burden", ID_Burden);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spCMC_insert(string CMC_Name)
+        {
+            spConfiguration("CMC_insert");
+            try
+            {
+                cmd.Parameters.AddWithValue("@CMC_Name", CMC_Name);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spCMC_update(Int32 ID_CMC, string CMC_Name)
+        {
+            spConfiguration("CMC_update");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_CMC", ID_CMC);
+                cmd.Parameters.AddWithValue("@CMC_Name", CMC_Name);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spCMC_delete(Int32 ID_CMC)
+        {
+            spConfiguration("CMC_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_CMC", ID_CMC);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spCMC_Logical_delete(Int32 ID_CMC)
+        {
+            spConfiguration("CMC_Logical_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_CMC", ID_CMC);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spCMC_of_the_Department_insert(Int32 Department_id, Int32 CMC_id)
+        {
+            spConfiguration("CMC_of_the_Department_insert");
+            try
+            {
+                cmd.Parameters.AddWithValue("@Department_id", Department_id);
+                cmd.Parameters.AddWithValue("@CMC_id", CMC_id);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spCMC_of_the_Department_update(Int32 ID_CMC_of_the_Department, Int32 Department_id, Int32 CMC_id)
+        {
+            spConfiguration("CMC_of_the_Department_update");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_CMC_of_the_Department", ID_CMC_of_the_Department);
+                cmd.Parameters.AddWithValue("@Department_id", Department_id);
+                cmd.Parameters.AddWithValue("@CMC_id", CMC_id);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spCMC_of_the_Department_delete(Int32 ID_CMC_of_the_Department)
+        {
+            spConfiguration("CMC_of_the_Department_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_CMC_of_the_Department", ID_CMC_of_the_Department);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spCMC_of_the_Department_Logical_delete(Int32 ID_CMC_of_the_Department)
+        {
+            spConfiguration("CMC_of_the_Department_Logical_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_CMC_of_the_Department", ID_CMC_of_the_Department);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spEmployee_in_CMC_insert(Int32 CMC_id, string Employee_Login, string Role_in_CMC)
+        {
+            spConfiguration("Employee_in_CMC_insert");
+            try
+            {
+                cmd.Parameters.AddWithValue("@CMC_id", CMC_id);
+                cmd.Parameters.AddWithValue("@Employee_Login", Employee_Login);
+                cmd.Parameters.AddWithValue("@Role_in_CMC", Role_in_CMC);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spEmployee_in_CMC_update(Int32 ID_Employee_in_CMC, Int32 CMC_id, string Employee_Login, string Role_in_CMC)
+        {
+            spConfiguration("Employee_in_CMC_update");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Employee_in_CMC", ID_Employee_in_CMC);
+                cmd.Parameters.AddWithValue("@CMC_id", CMC_id);
+                cmd.Parameters.AddWithValue("@Employee_Login", Employee_Login);
+                cmd.Parameters.AddWithValue("@Role_in_CMC", Role_in_CMC);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spEmployee_in_CMC_delete(Int32 ID_Employee_in_CMC)
+        {
+            spConfiguration("Employee_in_CMC_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Employee_in_CMC", ID_Employee_in_CMC);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spEmployee_in_CMC_Logical_delete(Int32 ID_Employee_in_CMC)
+        {
+            spConfiguration("Employee_in_CMC_Logical_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Employee_in_CMC", ID_Employee_in_CMC);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spPrefix_insert(string Name_of_prefix)
+        {
+            spConfiguration("Prefix_insert");
+            try
+            {
+                cmd.Parameters.AddWithValue("@Name_of_prefix", Name_of_prefix);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spPrefix_update(Int32 ID_Prefix, string Name_of_prefix)
+        {
+            spConfiguration("Prefix_update");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Prefix", ID_Prefix);
+                cmd.Parameters.AddWithValue("@Name_of_prefix", Name_of_prefix);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spPrefix_delete(Int32 ID_Prefix)
+        {
+            spConfiguration("Prefix_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Prefix", ID_Prefix);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spPrefix_Logical_delete(Int32 ID_Prefix)
+        {
+            spConfiguration("Prefix_Logical_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Prefix", ID_Prefix);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spType_of_discipline_insert(string Name_of_the_type)
+        {
+            spConfiguration("Type_of_discipline_insert");
+            try
+            {
+                cmd.Parameters.AddWithValue("@Name_of_the_type", Name_of_the_type);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spType_of_discipline_update(Int32 ID_Type_of_discipline, string Name_of_the_type)
+        {
+            spConfiguration("Type_of_discipline_update");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Type_of_discipline", ID_Type_of_discipline);
+                cmd.Parameters.AddWithValue("@Name_of_the_type", Name_of_the_type);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spType_of_discipline_delete(Int32 ID_Type_of_discipline)
+        {
+            spConfiguration("Type_of_discipline_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Type_of_discipline", ID_Type_of_discipline);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spType_of_discipline_Logical_delete(Int32 ID_Type_of_discipline)
+        {
+            spConfiguration("Type_of_discipline_Logical_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Type_of_discipline", ID_Type_of_discipline);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spForm_of_Control_insert(string Name_of_form)
+        {
+            spConfiguration("Form_of_Control_insert");
+            try
+            {
+                cmd.Parameters.AddWithValue("@Name_of_form", Name_of_form);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spForm_of_Control_update(Int32 ID_Form_of_control, string Name_of_form)
+        {
+            spConfiguration("Form_of_Control_update");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Form_of_control", ID_Form_of_control);
+                cmd.Parameters.AddWithValue("@Name_of_form", Name_of_form);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spForm_of_Control_delete(Int32 ID_Form_of_control)
+        {
+            spConfiguration("Form_of_Control_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Form_of_control", ID_Form_of_control);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spForm_of_Control_Logical_delete(Int32 ID_Form_of_control)
+        {
+            spConfiguration("Form_of_Control_Logical_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Form_of_control", ID_Form_of_control);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spDiscipline_of_CMC_insert(Int32 CMC_id, Int32 Prefix_id, string Prefix_number,
+            Int32 Discipline_id, Int32 Type_of_discipline_id, decimal Full_hours, decimal Theory_hours, decimal Labaratory_hours,
+            decimal Course_work_hours, Int32 Discipline_of_CMC_id)
+        {
+            spConfiguration("Discipline_of_CMC_insert");
+            try
+            {
+                cmd.Parameters.AddWithValue("@CMC_id", CMC_id);
+                cmd.Parameters.AddWithValue("@Prefix_id", Prefix_id);
+                cmd.Parameters.AddWithValue("@Prefix_number", Prefix_number);
+                cmd.Parameters.AddWithValue("@Discipline_id", Discipline_id);
+                cmd.Parameters.AddWithValue("@Type_of_discipline_id", Type_of_discipline_id);
+                cmd.Parameters.AddWithValue("@Full_hours", Full_hours);
+                cmd.Parameters.AddWithValue("@Theory_hours", Theory_hours);
+                cmd.Parameters.AddWithValue("@Labaratory_hours", Labaratory_hours);
+                cmd.Parameters.AddWithValue("@Course_work_hours", Course_work_hours);
+                cmd.Parameters.AddWithValue("@Discipline_of_CMC_id", Discipline_of_CMC_id);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spDiscipline_of_CMC_update(Int32 ID_Discipline_of_CMC, Int32 CMC_id, Int32 Prefix_id, string Prefix_number,
+            Int32 Discipline_id, Int32 Type_of_discipline_id, decimal Full_hours, decimal Theory_hours, decimal Labaratory_hours,
+            decimal Course_work_hours, Int32 Discipline_of_CMC_id)
+        {
+            spConfiguration("Discipline_of_CMC_update");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Discipline_of_CMC", ID_Discipline_of_CMC);
+                cmd.Parameters.AddWithValue("@CMC_id", CMC_id);
+                cmd.Parameters.AddWithValue("@Prefix_id", Prefix_id);
+                cmd.Parameters.AddWithValue("@Prefix_number", Prefix_number);
+                cmd.Parameters.AddWithValue("@Discipline_id", Discipline_id);
+                cmd.Parameters.AddWithValue("@Type_of_discipline_id", Type_of_discipline_id);
+                cmd.Parameters.AddWithValue("@Full_hours", Full_hours);
+                cmd.Parameters.AddWithValue("@Theory_hours", Theory_hours);
+                cmd.Parameters.AddWithValue("@Labaratory_hours", Labaratory_hours);
+                cmd.Parameters.AddWithValue("@Course_work_hours", Course_work_hours);
+                cmd.Parameters.AddWithValue("@Discipline_of_CMC_id", Discipline_of_CMC_id);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spDiscipline_of_CMC_delete(Int32 ID_Discipline_of_CMC)
+        {
+            spConfiguration("Discipline_of_CMC_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Discipline_of_CMC", ID_Discipline_of_CMC);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spDiscipline_of_CMC_Logical_delete(Int32 ID_Discipline_of_CMC)
+        {
+            spConfiguration("Discipline_of_CMC_Logical_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Discipline_of_CMC", ID_Discipline_of_CMC);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spDoCMC_Form_Control_insert(Int32 Discipline_of_CMC_id, Int32 Form_of_control_id, string Semester)
+        {
+            spConfiguration("DoCMC_Form_Control_insert");
+            try
+            {
+                cmd.Parameters.AddWithValue("@Discipline_of_CMC_id", Discipline_of_CMC_id);
+                cmd.Parameters.AddWithValue("@Form_of_control_id", Form_of_control_id);
+                cmd.Parameters.AddWithValue("@Semester", Semester);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spDoCMC_Form_Control_update(Int32 ID_DoCMC_Form_Control, Int32 Discipline_of_CMC_id, Int32 Form_of_control_id,
+            string Semester)
+        {
+            spConfiguration("DoCMC_Form_Control_update");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_DoCMC_Form_Control", ID_DoCMC_Form_Control);
+                cmd.Parameters.AddWithValue("@Discipline_of_CMC_id", Discipline_of_CMC_id);
+                cmd.Parameters.AddWithValue("@Form_of_control_id", Form_of_control_id);
+                cmd.Parameters.AddWithValue("@Semester", Semester);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spDoCMC_Form_Control_delete(Int32 ID_DoCMC_Form_Control)
+        {
+            spConfiguration("DoCMC_Form_Control_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_DoCMC_Form_Control", ID_DoCMC_Form_Control);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spDoCMC_Form_Control_Logical_delete(Int32 ID_DoCMC_Form_Control)
+        {
+            spConfiguration("DoCMC_Form_Control_Logical_delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_DoCMC_Form_Control", ID_DoCMC_Form_Control);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spDiscipline_Insert(string The_name_of_the_discipline)
+        {
+            spConfiguration("Discipline_Insert");
+            try
+            {
+                cmd.Parameters.AddWithValue("@The_name_of_the_discipline", The_name_of_the_discipline);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spDiscipline_Update(Int32 ID_Discipline, string The_name_of_the_discipline)
+        {
+            spConfiguration("Discipline_Update");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Discipline", ID_Discipline);
+                cmd.Parameters.AddWithValue("@The_name_of_the_discipline", The_name_of_the_discipline);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spDiscipline_Delete(Int32 ID_Discipline)
+        {
+            spConfiguration("Discipline_Delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Discipline", ID_Discipline);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
+            }
+            finally
+            {
+                Registry_Class.sqlConnection.Close();
+            }
+        }
+
+        public void spDiscipline_Logical_Delete(Int32 ID_Discipline)
+        {
+            spConfiguration("Discipline_Logical_Delete");
+            try
+            {
+                cmd.Parameters.AddWithValue("@ID_Discipline", ID_Discipline);
+                Registry_Class.sqlConnection.Open();
+                Registry_Class.sqlConnection.InfoMessage += message;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException ex)
+            {
+                Registry_Class.error_message += "\n" + DateTime.Now.ToLongDateString() + " " + ex.Message;
             }
             finally
             {

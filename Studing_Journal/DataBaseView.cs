@@ -25,8 +25,8 @@ namespace Studing_Journal
             qrvDepartment_statistic_Students = "select [Department_name], [Students_count] from [dbo].[Department_statistic_Students]",
             qrvGroup_statistics_in_studing = "select [Group_name],[Middle_mark] from [dbo].[Group_statistics_in_studing]",
             qrvGroup_academic_performance = "select [Group_name],[Grade_point_average],[Quality_percentage],[Percentage_of_performance] from [dbo].[Group_academic_performance]",
-            qrvStudent_Marks = "select [Student_Login],[Student_Info],[Disipline],[Mark] from [dbo].[Student_Marks]",
-            qrvEmployee_Burden = "select [Employee_Login],[Employee_Info],[Discipline_Info],[Group_Info] from [dbo].[Employee_Burden]";
+            qrvStudent_Marks = "select [Student_Login], [Student_Info], [Disipline], [Mark] from [dbo].[Student_Marks]",
+            qrvEmployee_Burden = "select [Employee_Login], [Employee_Info], [Discipline_Info], [Group_Info] from [dbo].[Employee_Burden]"; 
         private void dtvFill(DataTable table, string query)
         {
             command.CommandText = query;

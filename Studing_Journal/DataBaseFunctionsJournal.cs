@@ -41,7 +41,7 @@ namespace Studing_Journal
                     {
                         command.CommandText = "select [dbo].[Students_Marks]('"
                             +dtJournal.Rows[i][0].ToString()+"','"
-                            + dtJournal.Rows[0][j].ToString() + "')";
+                            + dtJournal.Rows[0][j].ToString() + "','"+discipline+"','"+employee+"')";
                         dtJournal.Rows[i][j] = command.ExecuteScalar().ToString();
                     }
                 fillJornal(dtJournal);
